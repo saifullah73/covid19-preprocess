@@ -1,0 +1,14 @@
+plotly
+pyroutelib3
+osmnx
+networkx
+pandas
+geopandas
+numpy
+folium
+geojson
+matplotlib
+shapely
+pyproj
+OSMPythonTools
+
