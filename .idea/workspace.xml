@@ -5,19 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b6f8276-fe0c-4b8a-b38a-698bf7347636" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/new-parser/osm_parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/covid19-preprocess.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/covid19-preprocess.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser-test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/extract_hospitals.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/extract_hospitals.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/extract_houses.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/extract_houses.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/extract_offices.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/extract_offices.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/extract_parks.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/extract_parks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/extract_places.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/extract_places.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/extract_schools.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/extract_schools.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/extract_supermarkets.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/extract_supermarkets.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/new-parser/location_graph.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/new-parser/results/buildings.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/new-parser/results/hospitals.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/new-parser/results/houses.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/new-parser/results/offices.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/new-parser/results/parks.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/new-parser/results/place_of_worship.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/new-parser/results/schools.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/new-parser/results/supermarkets.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +40,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../facs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -146,12 +142,20 @@
       <option name="project" value="LOCAL" />
       <updated>1600257819436</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Updated Code to use Pyrosm for osm parsing">
+      <created>1602241153733</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1602241153733</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added Pyrosm for parsing osm.pbf" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Pyrosm for parsing osm.pbf" />
+    <MESSAGE value="Updated Code to use Pyrosm for osm parsing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated Code to use Pyrosm for osm parsing" />
   </component>
   <component name="WindowStateProjectService">
     <state x="445" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598614093719">
