@@ -1,6 +1,6 @@
 import sys
 import xml.etree.ElementTree as ET
-from .parse_osm import *
+from src.parse_osm import *
 
 def extract_schools(tree):
   for c1 in root:

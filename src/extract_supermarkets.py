@@ -1,6 +1,6 @@
 import sys
 import xml.etree.ElementTree as ET
-from .parse_osm import *
+from src.parse_osm import *
 
 def extract_supermarkets(tree, flag):
   for c1 in root:

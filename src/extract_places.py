@@ -1,4 +1,4 @@
-from .parse_osm import *
+from src.parse_osm import *
 results = []
 
 

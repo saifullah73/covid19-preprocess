@@ -1,24 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b6f8276-fe0c-4b8a-b38a-698bf7347636" name="Default Changelist" comment="" />
+    <list default="true" id="5b6f8276-fe0c-4b8a-b38a-698bf7347636" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/new-parser/osm_parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/covid19-preprocess.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/covid19-preprocess.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser-test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/extract_hospitals.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/extract_hospitals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/extract_houses.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/extract_houses.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/extract_offices.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/extract_offices.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/extract_parks.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/extract_parks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/extract_places.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/extract_places.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/extract_schools.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/extract_schools.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/extract_supermarkets.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/extract_supermarkets.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1gj0tQqWcPLdeuzTlFHanhbvZ3c" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../facs" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/old-parser" />
+      <recent name="$PROJECT_DIR$/src/new-parser/results" />
+      <recent name="$PROJECT_DIR$/src/new-parser" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.osm_parser">
     <configuration name="LocationRoutes" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="covid19-preprocess" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -40,12 +77,57 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Parser-test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="covid19-preprocess" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/new-parser/Parser-test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="osm_parser" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="covid19-preprocess" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/new-parser" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/new-parser/osm_parser.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.osm_parser" />
+        <item itemvalue="Python.Parser-test" />
         <item itemvalue="Python.LocationRoutes" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -57,36 +139,99 @@
       <option name="presentableId" value="Default" />
       <updated>1598613255272</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added Pyrosm for parsing osm.pbf">
+      <created>1600257819435</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1600257819436</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added Pyrosm for parsing osm.pbf" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Pyrosm for parsing osm.pbf" />
   </component>
   <component name="WindowStateProjectService">
     <state x="445" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598614093719">
       <screen x="55" y="27" width="1865" height="1053" />
     </state>
     <state x="445" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/55.27.1865.1053@55.27.1865.1053" timestamp="1598614093719" />
-    <state width="1842" height="278" key="GridCell.Tab.0.bottom" timestamp="1598619534908">
+    <state x="653" y="355" width="661" height="403" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600435694961">
+      <screen x="58" y="27" width="1862" height="1053" />
+    </state>
+    <state x="653" y="355" key="#com.intellij.fileTypes.FileTypeChooser/58.27.1862.1053@58.27.1862.1053" timestamp="1600435694961" />
+    <state x="654" y="355" width="661" height="403" key="#com.intellij.fileTypes.FileTypeChooser/60.27.1860.1053@60.27.1860.1053" timestamp="1600256274548" />
+    <state x="722" y="302" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1601379145606">
+      <screen x="58" y="27" width="1862" height="1053" />
+    </state>
+    <state x="722" y="302" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/58.27.1862.1053@58.27.1862.1053" timestamp="1601379145606" />
+    <state x="529" y="101" width="912" height="911" key="CommitChangelistDialog2" timestamp="1600257819110">
+      <screen x="60" y="27" width="1860" height="1053" />
+    </state>
+    <state x="529" y="101" width="912" height="911" key="CommitChangelistDialog2/60.27.1860.1053@60.27.1860.1053" timestamp="1600257819110" />
+    <state x="772" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1601546616161">
+      <screen x="58" y="27" width="1862" height="1053" />
+    </state>
+    <state x="772" y="311" width="424" height="491" key="FileChooserDialogImpl/58.27.1862.1053@58.27.1862.1053" timestamp="1601546616161" />
+    <state width="1839" height="315" key="GridCell.Tab.0.bottom" timestamp="1601383960664">
+      <screen x="58" y="27" width="1862" height="1053" />
+    </state>
+    <state width="1842" height="278" key="GridCell.Tab.0.bottom/55.27.1865.1053@55.27.1865.1053" timestamp="1600086382893" />
+    <state width="1839" height="315" key="GridCell.Tab.0.bottom/58.27.1862.1053@58.27.1862.1053" timestamp="1601383960664" />
+    <state width="1837" height="315" key="GridCell.Tab.0.bottom/60.27.1860.1053@60.27.1860.1053" timestamp="1600432673984" />
+    <state width="1839" height="315" key="GridCell.Tab.0.center" timestamp="1601383960663">
+      <screen x="58" y="27" width="1862" height="1053" />
+    </state>
+    <state width="1842" height="278" key="GridCell.Tab.0.center/55.27.1865.1053@55.27.1865.1053" timestamp="1600086382892" />
+    <state width="1839" height="315" key="GridCell.Tab.0.center/58.27.1862.1053@58.27.1862.1053" timestamp="1601383960663" />
+    <state width="1837" height="315" key="GridCell.Tab.0.center/60.27.1860.1053@60.27.1860.1053" timestamp="1600432673983" />
+    <state width="1839" height="315" key="GridCell.Tab.0.left" timestamp="1601383960663">
+      <screen x="58" y="27" width="1862" height="1053" />
+    </state>
+    <state width="1842" height="278" key="GridCell.Tab.0.left/55.27.1865.1053@55.27.1865.1053" timestamp="1600086382891" />
+    <state width="1839" height="315" key="GridCell.Tab.0.left/58.27.1862.1053@58.27.1862.1053" timestamp="1601383960663" />
+    <state width="1837" height="315" key="GridCell.Tab.0.left/60.27.1860.1053@60.27.1860.1053" timestamp="1600432673983" />
+    <state width="1839" height="315" key="GridCell.Tab.0.right" timestamp="1601383960664">
+      <screen x="58" y="27" width="1862" height="1053" />
+    </state>
+    <state width="1842" height="278" key="GridCell.Tab.0.right/55.27.1865.1053@55.27.1865.1053" timestamp="1600086382893" />
+    <state width="1839" height="315" key="GridCell.Tab.0.right/58.27.1862.1053@58.27.1862.1053" timestamp="1601383960664" />
+    <state width="1837" height="315" key="GridCell.Tab.0.right/60.27.1860.1053@60.27.1860.1053" timestamp="1600432673984" />
+    <state width="907" height="340" key="GridCell.Tab.1.bottom" timestamp="1600257900089">
+      <screen x="60" y="27" width="1860" height="1053" />
+    </state>
+    <state width="907" height="340" key="GridCell.Tab.1.bottom/60.27.1860.1053@60.27.1860.1053" timestamp="1600257900089" />
+    <state width="907" height="340" key="GridCell.Tab.1.center" timestamp="1600257900089">
+      <screen x="60" y="27" width="1860" height="1053" />
+    </state>
+    <state width="907" height="340" key="GridCell.Tab.1.center/60.27.1860.1053@60.27.1860.1053" timestamp="1600257900089" />
+    <state width="907" height="340" key="GridCell.Tab.1.left" timestamp="1600257900088">
+      <screen x="60" y="27" width="1860" height="1053" />
+    </state>
+    <state width="907" height="340" key="GridCell.Tab.1.left/60.27.1860.1053@60.27.1860.1053" timestamp="1600257900088" />
+    <state width="907" height="340" key="GridCell.Tab.1.right" timestamp="1600257900089">
+      <screen x="60" y="27" width="1860" height="1053" />
+    </state>
+    <state width="907" height="340" key="GridCell.Tab.1.right/60.27.1860.1053@60.27.1860.1053" timestamp="1600257900089" />
+    <state x="635" y="122" width="1022" height="737" key="SettingsEditor" timestamp="1601124881561">
+      <screen x="58" y="27" width="1862" height="1053" />
+    </state>
+    <state x="503" y="160" width="1022" height="753" key="SettingsEditor/55.27.1865.1053@55.27.1865.1053" timestamp="1600086283896" />
+    <state x="635" y="122" key="SettingsEditor/58.27.1862.1053@58.27.1862.1053" timestamp="1601124881561" />
+    <state x="636" y="122" width="1022" height="737" key="SettingsEditor/60.27.1860.1053@60.27.1860.1053" timestamp="1600252737100" />
+    <state x="585" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1600257822049">
+      <screen x="60" y="27" width="1860" height="1053" />
+    </state>
+    <state x="585" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/60.27.1860.1053@60.27.1860.1053" timestamp="1600257822049" />
+    <state x="643" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1599469382958">
       <screen x="55" y="27" width="1865" height="1053" />
     </state>
-    <state width="1842" height="278" key="GridCell.Tab.0.bottom/55.27.1865.1053@55.27.1865.1053" timestamp="1598619534908" />
-    <state width="1842" height="278" key="GridCell.Tab.0.center" timestamp="1598619534907">
-      <screen x="55" y="27" width="1865" height="1053" />
+    <state x="643" y="380" key="com.intellij.ide.util.TipDialog/55.27.1865.1053@55.27.1865.1053" timestamp="1599469382958" />
+    <state x="652" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1600779353402">
+      <screen x="58" y="27" width="1862" height="1053" />
     </state>
-    <state width="1842" height="278" key="GridCell.Tab.0.center/55.27.1865.1053@55.27.1865.1053" timestamp="1598619534907" />
-    <state width="1842" height="278" key="GridCell.Tab.0.left" timestamp="1598619534907">
-      <screen x="55" y="27" width="1865" height="1053" />
-    </state>
-    <state width="1842" height="278" key="GridCell.Tab.0.left/55.27.1865.1053@55.27.1865.1053" timestamp="1598619534907" />
-    <state width="1842" height="278" key="GridCell.Tab.0.right" timestamp="1598619534907">
-      <screen x="55" y="27" width="1865" height="1053" />
-    </state>
-    <state width="1842" height="278" key="GridCell.Tab.0.right/55.27.1865.1053@55.27.1865.1053" timestamp="1598619534907" />
-    <state x="476" y="187" key="SettingsEditor" timestamp="1598615526408">
-      <screen x="55" y="27" width="1865" height="1053" />
-    </state>
-    <state x="476" y="187" key="SettingsEditor/55.27.1865.1053@55.27.1865.1053" timestamp="1598615526408" />
-    <state x="643" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1598619368076">
-      <screen x="55" y="27" width="1865" height="1053" />
-    </state>
-    <state x="643" y="380" key="com.intellij.ide.util.TipDialog/55.27.1865.1053@55.27.1865.1053" timestamp="1598619368076" />
+    <state x="652" y="259" width="672" height="678" key="search.everywhere.popup/58.27.1862.1053@58.27.1862.1053" timestamp="1600779353402" />
   </component>
 </project>

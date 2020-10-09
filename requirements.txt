@@ -11,4 +11,6 @@ matplotlib
 shapely
 pyproj
 OSMPythonTools
+ipywidgets
+pyrosm
 

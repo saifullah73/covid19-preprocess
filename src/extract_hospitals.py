@@ -1,6 +1,5 @@
 import sys
 import xml.etree.ElementTree as ET
-from .parse_osm import *
 
 def extract_hospitals(tree):
   for c1 in root:

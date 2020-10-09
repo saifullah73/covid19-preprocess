@@ -1,8 +1,6 @@
 import sys
 import xml.etree.ElementTree as ET
-from .parse_osm import *
-import numpy as np
-import csv
+from src.parse_osm import *
 
 Brent_Population = 330795
 Ealing_Population = 341982
