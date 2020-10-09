@@ -468,7 +468,7 @@ try:
             print("--place_of_worship: to extract place of worship")
             print("--supermarkets: to extract supermarkets")
             print("--houses: to generate houses in residential areas")
-            print("--merge: to merge indivdual results of supermarkets, leisure etc")
+            print("--merge: to merge individual results of supermarkets, leisure etc")
             print("--loc: to use the output of merge to generate location graph")
             print("--all: to do everything with default osm.pbf")
             break
