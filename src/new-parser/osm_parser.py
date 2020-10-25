@@ -88,39 +88,46 @@ def extract_hospitals(osm):
     extracted_result = osm.get_pois(custom_filter=custom_filter)
     results = []
     areas = []
-    print(str(len(extracted_result)) + " hospitals extracted")
-    for x in range(len(extracted_result)):
-        geo_gs = extracted_result.loc[[x], "geometry"] #geoseries object
-        shap_gs = extracted_result.loc[x, "geometry"] # shapely object
-        centroid = shap_gs.centroid
-        if shap_gs.type == "Polygon":
-            lon = centroid.x
-            lat = centroid.y
-            geo_gs.set_crs(epsg=4326)
+    if (extracted_result is None):
+        print("No hospitals found")
+        return
+    else:
+        print(str(len(extracted_result)) + " hospitals extracted")
+        for x in range(len(extracted_result)):
+            geo_gs = extracted_result.loc[[x], "geometry"] #geoseries object
+            shap_gs = extracted_result.loc[x, "geometry"] # shapely object
+            centroid = shap_gs.centroid
+            if shap_gs.type == "Polygon":
+                lon = centroid.x
+                lat = centroid.y
+                geo_gs.set_crs(epsg=4326)
 
-            # 3857,3395,6933,{'proj':'cea'} : a few epsg strings to project to
-            # most commonly used in web application is 3857 and 6933
-            #
-            # 3395 : used in very small scale mapping
-            #source : https://epsg.io/3395
-            #
-            # 6933 and cea : not useful in our case: "The projection is appropriate for large-scale mapping of the areas near the equator such as Indonesia and parts of the Pacific Ocean. Its recommended use is for narrow areas extending along the standard lines. The projection is often misused for small-scale mapping."
-            # source: https://pro.arcgis.com/en/pro-app/help/mapping/properties/cylindrical-equal-area.htm#:~:text=the%20central%20meridian.-,Usage,misused%20for%20small%2Dscale%20mapping.
+                # 3857,3395,6933,{'proj':'cea'} : a few epsg strings to project to
+                # most commonly used in web application is 3857 and 6933
+                #
+                # 3395 : used in very small scale mapping
+                #source : https://epsg.io/3395
+                #
+                # 6933 and cea : not useful in our case: "The projection is appropriate for large-scale mapping of the areas near the equator such as Indonesia and parts of the Pacific Ocean. Its recommended use is for narrow areas extending along the standard lines. The projection is often misused for small-scale mapping."
+                # source: https://pro.arcgis.com/en/pro-app/help/mapping/properties/cylindrical-equal-area.htm#:~:text=the%20central%20meridian.-,Usage,misused%20for%20small%2Dscale%20mapping.
 
-            geo_gs = geo_gs.to_crs(epsg=3395)
-            area = int((float(geo_gs.area)))
-            # area = calc_geom_area(shap_gs) #uses albers equal area projection
+                geo_gs = geo_gs.to_crs(epsg=3395)
+                area = int((float(geo_gs.area)))
+                # area = calc_geom_area(shap_gs) #uses albers equal area projection
 
 
-            row = {"type":"hospital","lon":lon,"lat":lat,"area":area}
-            areas.append(area)
-            results.append(row)
+                row = {"type":"hospital","lon":lon,"lat":lat,"area":area}
+                areas.append(area)
+                results.append(row)
+            else:
+                lon = centroid.x
+                lat = centroid.y
+                row = {"type": "hospital", "lon": lon, "lat": lat, "area": 0}
+                results.append(row)
+        if (len(areas) !=  0):
+            write_rows_to_csv("hospitals.csv", results, int(sum(areas) / len(areas)))
         else:
-            lon = centroid.x
-            lat = centroid.y
-            row = {"type": "hospital", "lon": lon, "lat": lat, "area": 0}
-            results.append(row)
-    write_rows_to_csv("hospitals.csv", results, int(sum(areas) / len(areas)))
+            write_rows_to_csv("hospitals.csv", results,0)
 
 def extract_offices(osm):
     # what needs to be extracted
@@ -129,156 +136,12 @@ def extract_offices(osm):
     extracted_result = osm.get_data_by_custom_criteria(custom_filter=custom_filter,osm_keys_to_keep=keys_to_keep,keep_nodes = True, keep_relations = True,keep_ways=True)
     results = []
     areas = []
-    print(str(len(extracted_result)) + " offices extracted")
-    for x in range(len(extracted_result)):
-        geo_gs = extracted_result.loc[[x], "geometry"]  # geoseries object
-        shap_gs = extracted_result.loc[x, "geometry"]  # shapely object
-        centroid = shap_gs.centroid
-        if shap_gs.type == "Polygon":
-            lon = centroid.x
-            lat = centroid.y
-            geo_gs.set_crs(epsg=4326)
-
-            # 3857,3395,6933,{'proj':'cea'} : a few epsg strings to project to
-            # most commonly used in web application is 3857 and 6933
-            #
-            # 3395 : used in very small scale mapping
-            # source : https://epsg.io/3395
-            #
-            # 6933 and cea : not useful in our case: "The projection is appropriate for large-scale mapping of the areas near the equator such as Indonesia and parts of the Pacific Ocean. Its recommended use is for narrow areas extending along the standard lines. The projection is often misused for small-scale mapping."
-            # source: https://pro.arcgis.com/en/pro-app/help/mapping/properties/cylindrical-equal-area.htm#:~:text=the%20central%20meridian.-,Usage,misused%20for%20small%2Dscale%20mapping.
-
-            # geo_gs = geo_gs.to_crs(epsg=3395)
-            # area = int((float(geo_gs.area)))
-            area = int(calc_geom_area(shap_gs)) #uses albers equal area projection
-
-            row = {"type": "office", "lon": lon, "lat": lat, "area": area}
-            areas.append(area)
-            results.append(row)
-        else:
-            lon = centroid.x
-            lat = centroid.y
-            row = {"type": "office", "lon": lon, "lat": lat, "area": 0}
-            results.append(row)
-    write_rows_to_csv("offices.csv", results, int(sum(areas) / len(areas)))
-
-
-def extract_leisure(osm):
-    # what needs to be extracted
-    # custom_filter = {'leisure': ["park","garden","nature_reserve","playground","track"]}
-    custom_filter = {'leisure':True}
-    keys_to_keep = ["leisure"]
-    extracted_result = osm.get_data_by_custom_criteria(custom_filter=custom_filter,osm_keys_to_keep=keys_to_keep,keep_nodes = False, keep_relations = False,keep_ways=True)
-    results = []
-    areas = []
-    print(str(len(extracted_result)) + " parks extracted")
-    for x in range(len(extracted_result)):
-        geo_gs = extracted_result.loc[[x], "geometry"]  # geoseries object
-        shap_gs = extracted_result.loc[x, "geometry"]  # shapely object
-        centroid = shap_gs.centroid
-        leisure_type = extracted_result.loc[x,"leisure"]
-        if leisure_type in ["park","garden","nature_reserve"]:
-            leisure_type = "park"
-        else:
-            leisure_type = "leisure"
-        if shap_gs.type == "Polygon":
-            lon = centroid.x
-            lat = centroid.y
-            geo_gs.set_crs(epsg=4326)
-
-            # 3857,3395,6933,{'proj':'cea'} : a few epsg strings to project to
-            # most commonly used in web application is 3857 and 6933
-            #
-            # 3395 : used in very small scale mapping
-            # source : https://epsg.io/3395
-            #
-            # 6933 and cea : not useful in our case: "The projection is appropriate for large-scale mapping of the areas near the equator such as Indonesia and parts of the Pacific Ocean. Its recommended use is for narrow areas extending along the standard lines. The projection is often misused for small-scale mapping."
-            # source: https://pro.arcgis.com/en/pro-app/help/mapping/properties/cylindrical-equal-area.htm#:~:text=the%20central%20meridian.-,Usage,misused%20for%20small%2Dscale%20mapping.
-
-            # geo_gs = geo_gs.to_crs(epsg=3395)
-            # area = int((float(geo_gs.area)))
-            area = int(calc_geom_area(shap_gs)) #uses albers equal area projection
-
-            row = {"type": leisure_type, "lon": lon, "lat": lat, "area": area}
-            areas.append(area)
-            results.append(row)
-        else:
-            lon = centroid.x
-            lat = centroid.y
-            row = {"type": leisure_type, "lon": lon, "lat": lat, "area": 0}
-            results.append(row)
-    write_rows_to_csv("parks.csv", results, int(sum(areas) / len(areas)))
-
-def extract_schools(osm):
-    # what needs to be extracted
-    custom_filter = {'amenity': ["school","university"], "building": ["school","university"]}
-    keys_to_keep = ["building","amenity"]
-    extracted_result = osm.get_data_by_custom_criteria(custom_filter=custom_filter,osm_keys_to_keep=keys_to_keep,keep_nodes = False, keep_relations = False,keep_ways=True)
-    results = []
-    areas = []
-    print(str(len(extracted_result)) + " schools/universities extracted")
-    for x in range(len(extracted_result)):
-        geo_gs = extracted_result.loc[[x], "geometry"]  # geoseries object
-        shap_gs = extracted_result.loc[x, "geometry"]  # shapely object
-        centroid = shap_gs.centroid
-        if shap_gs.type == "Polygon":
-            lon = centroid.x
-            lat = centroid.y
-            geo_gs.set_crs(epsg=4326)
-
-            # 3857,3395,6933,{'proj':'cea'} : a few epsg strings to project to
-            # most commonly used in web application is 3857 and 6933
-            #
-            # 3395 : used in very small scale mapping
-            # source : https://epsg.io/3395
-            #
-            # 6933 and cea : not useful in our case: "The projection is appropriate for large-scale mapping of the areas near the equator such as Indonesia and parts of the Pacific Ocean. Its recommended use is for narrow areas extending along the standard lines. The projection is often misused for small-scale mapping."
-            # source: https://pro.arcgis.com/en/pro-app/help/mapping/properties/cylindrical-equal-area.htm#:~:text=the%20central%20meridian.-,Usage,misused%20for%20small%2Dscale%20mapping.
-
-            # geo_gs = geo_gs.to_crs(epsg=3395)
-            # area = int((float(geo_gs.area)))
-            area = int(calc_geom_area(shap_gs)) #uses albers equal area projection
-
-            row = {"type": "school", "lon": lon, "lat": lat, "area": area}
-            areas.append(area)
-            results.append(row)
-        else:
-            lon = centroid.x
-            lat = centroid.y
-            row = {"type": "school", "lon": lon, "lat": lat, "area": 0}
-            results.append(row)
-    write_rows_to_csv("schools.csv", results, int(sum(areas) / len(areas)))
-
-def extract_supermarkets(osm):
-    # what needs to be extracted
-    #we need two filters, because of an odd issue, shops aren't extracted if they are included in first filter. Using two filters is justfied in
-    # islamabad case since no shop is marked as a retail building or landuse, thus no same items are extracted by the two filters.
-    #this might not be true in case of other cities
-    custom_filter1 = {"landuse": ["retail"],"building": ["retail"]}
-    custom_filter2 = {'shop': True}
-    keep_nodes1 = False
-    keep_nodes2 = False
-    set1 = (custom_filter1,keep_nodes1)
-    set2 = (custom_filter2,keep_nodes2)
-    results = []
-    areas = []
-    for filter in [set1,set2]:
-        extracted_result = osm.get_data_by_custom_criteria(custom_filter=filter[0],keep_nodes = filter[1], keep_relations = False,keep_ways=True)
-        print(str(len(extracted_result)) + " shops/supermarkets extracted")
+    if (extracted_result is None):
+        print("No offices found")
+        return
+    else:
+        print(str(len(extracted_result)) + " offices extracted")
         for x in range(len(extracted_result)):
-            try:
-                t1 = extracted_result.loc[x, "shop"]
-            except KeyError:
-                t1 = None
-            try:
-                t2 = extracted_result.loc[x, "amenity"]
-            except KeyError:
-                t2 = None
-
-            if t1 == "supermarket" or t2 == "supermarket":
-                shop_type = "supermarket"
-            else:
-                shop_type = "shopping"
             geo_gs = extracted_result.loc[[x], "geometry"]  # geoseries object
             shap_gs = extracted_result.loc[x, "geometry"]  # shapely object
             centroid = shap_gs.centroid
@@ -300,15 +163,187 @@ def extract_supermarkets(osm):
                 # area = int((float(geo_gs.area)))
                 area = int(calc_geom_area(shap_gs)) #uses albers equal area projection
 
-                row = {"type": shop_type, "lon": lon, "lat": lat, "area": area}
+                row = {"type": "office", "lon": lon, "lat": lat, "area": area}
                 areas.append(area)
                 results.append(row)
             else:
                 lon = centroid.x
                 lat = centroid.y
-                row = {"type": shop_type, "lon": lon, "lat": lat, "area": 0}
+                row = {"type": "office", "lon": lon, "lat": lat, "area": 0}
                 results.append(row)
-    write_rows_to_csv("supermarkets.csv", results, int(sum(areas) / len(areas)))
+        if (len(areas) != 0):
+            write_rows_to_csv("offices.csv", results, int(sum(areas) / len(areas)))
+        else:
+            write_rows_to_csv("offices.csv", results,0)
+
+
+def extract_leisure(osm):
+    # what needs to be extracted
+    # custom_filter = {'leisure': ["park","garden","nature_reserve","playground","track"]}
+    custom_filter = {'leisure':True}
+    keys_to_keep = ["leisure"]
+    extracted_result = osm.get_data_by_custom_criteria(custom_filter=custom_filter,osm_keys_to_keep=keys_to_keep,keep_nodes = False, keep_relations = False,keep_ways=True)
+    results = []
+    areas = []
+    if (extracted_result is None):
+        print("No leisure places found")
+    else:
+        print(str(len(extracted_result)) + " parks extracted")
+        for x in range(len(extracted_result)):
+            geo_gs = extracted_result.loc[[x], "geometry"]  # geoseries object
+            shap_gs = extracted_result.loc[x, "geometry"]  # shapely object
+            centroid = shap_gs.centroid
+            leisure_type = extracted_result.loc[x,"leisure"]
+            if leisure_type in ["park","garden","nature_reserve"]:
+                leisure_type = "park"
+            else:
+                leisure_type = "leisure"
+            if shap_gs.type == "Polygon":
+                lon = centroid.x
+                lat = centroid.y
+                geo_gs.set_crs(epsg=4326)
+
+                # 3857,3395,6933,{'proj':'cea'} : a few epsg strings to project to
+                # most commonly used in web application is 3857 and 6933
+                #
+                # 3395 : used in very small scale mapping
+                # source : https://epsg.io/3395
+                #
+                # 6933 and cea : not useful in our case: "The projection is appropriate for large-scale mapping of the areas near the equator such as Indonesia and parts of the Pacific Ocean. Its recommended use is for narrow areas extending along the standard lines. The projection is often misused for small-scale mapping."
+                # source: https://pro.arcgis.com/en/pro-app/help/mapping/properties/cylindrical-equal-area.htm#:~:text=the%20central%20meridian.-,Usage,misused%20for%20small%2Dscale%20mapping.
+
+                # geo_gs = geo_gs.to_crs(epsg=3395)
+                # area = int((float(geo_gs.area)))
+                area = int(calc_geom_area(shap_gs)) #uses albers equal area projection
+
+                row = {"type": leisure_type, "lon": lon, "lat": lat, "area": area}
+                areas.append(area)
+                results.append(row)
+            else:
+                lon = centroid.x
+                lat = centroid.y
+                row = {"type": leisure_type, "lon": lon, "lat": lat, "area": 0}
+                results.append(row)
+        if (len(areas) != 0):
+            write_rows_to_csv("parks.csv", results, int(sum(areas) / len(areas)))
+        else:
+            write_rows_to_csv("parks.csv", results, 0)
+
+def extract_schools(osm):
+    # what needs to be extracted
+    custom_filter = {'amenity': ["school","university"], "building": ["school","university"]}
+    keys_to_keep = ["building","amenity"]
+    extracted_result = osm.get_data_by_custom_criteria(custom_filter=custom_filter,osm_keys_to_keep=keys_to_keep,keep_nodes = False, keep_relations = False,keep_ways=True)
+    results = []
+    areas = []
+    if (extracted_result is None):
+        print("No schools found")
+        return
+    else:
+        print(str(len(extracted_result)) + " schools/universities extracted")
+        for x in range(len(extracted_result)):
+            geo_gs = extracted_result.loc[[x], "geometry"]  # geoseries object
+            shap_gs = extracted_result.loc[x, "geometry"]  # shapely object
+            centroid = shap_gs.centroid
+            if shap_gs.type == "Polygon":
+                lon = centroid.x
+                lat = centroid.y
+                geo_gs.set_crs(epsg=4326)
+
+                # 3857,3395,6933,{'proj':'cea'} : a few epsg strings to project to
+                # most commonly used in web application is 3857 and 6933
+                #
+                # 3395 : used in very small scale mapping
+                # source : https://epsg.io/3395
+                #
+                # 6933 and cea : not useful in our case: "The projection is appropriate for large-scale mapping of the areas near the equator such as Indonesia and parts of the Pacific Ocean. Its recommended use is for narrow areas extending along the standard lines. The projection is often misused for small-scale mapping."
+                # source: https://pro.arcgis.com/en/pro-app/help/mapping/properties/cylindrical-equal-area.htm#:~:text=the%20central%20meridian.-,Usage,misused%20for%20small%2Dscale%20mapping.
+
+                # geo_gs = geo_gs.to_crs(epsg=3395)
+                # area = int((float(geo_gs.area)))
+                area = int(calc_geom_area(shap_gs)) #uses albers equal area projection
+
+                row = {"type": "school", "lon": lon, "lat": lat, "area": area}
+                areas.append(area)
+                results.append(row)
+            else:
+                lon = centroid.x
+                lat = centroid.y
+                row = {"type": "school", "lon": lon, "lat": lat, "area": 0}
+                results.append(row)
+
+        if (len(areas) != 0):
+            write_rows_to_csv("schools.csv", results, int(sum(areas) / len(areas)))
+        else:
+            write_rows_to_csv("schools.csv", results, 0)
+
+def extract_supermarkets(osm):
+    # what needs to be extracted
+    #we need two filters, because of an odd issue, shops aren't extracted if they are included in first filter. Using two filters is justfied in
+    # islamabad case since no shop is marked as a retail building or landuse, thus no same items are extracted by the two filters.
+    #this might not be true in case of other cities
+    custom_filter1 = {"landuse": ["retail"],"building": ["retail"]}
+    custom_filter2 = {'shop': True}
+    keep_nodes1 = False
+    keep_nodes2 = False
+    set1 = (custom_filter1,keep_nodes1)
+    set2 = (custom_filter2,keep_nodes2)
+    results = []
+    areas = []
+    for filter in [set1,set2]:
+        extracted_result = osm.get_data_by_custom_criteria(custom_filter=filter[0],keep_nodes = filter[1], keep_relations = False,keep_ways=True)
+        if (extracted_result is None):
+            print("No supermarkets found "+str(filter))
+            continue
+        else:
+            print(str(len(extracted_result)) + " shops/supermarkets extracted")
+            for x in range(len(extracted_result)):
+                try:
+                    t1 = extracted_result.loc[x, "shop"]
+                except KeyError:
+                    t1 = None
+                try:
+                    t2 = extracted_result.loc[x, "amenity"]
+                except KeyError:
+                    t2 = None
+
+                if t1 == "supermarket" or t2 == "supermarket":
+                    shop_type = "supermarket"
+                else:
+                    shop_type = "shopping"
+                geo_gs = extracted_result.loc[[x], "geometry"]  # geoseries object
+                shap_gs = extracted_result.loc[x, "geometry"]  # shapely object
+                centroid = shap_gs.centroid
+                if shap_gs.type == "Polygon":
+                    lon = centroid.x
+                    lat = centroid.y
+                    geo_gs.set_crs(epsg=4326)
+
+                    # 3857,3395,6933,{'proj':'cea'} : a few epsg strings to project to
+                    # most commonly used in web application is 3857 and 6933
+                    #
+                    # 3395 : used in very small scale mapping
+                    # source : https://epsg.io/3395
+                    #
+                    # 6933 and cea : not useful in our case: "The projection is appropriate for large-scale mapping of the areas near the equator such as Indonesia and parts of the Pacific Ocean. Its recommended use is for narrow areas extending along the standard lines. The projection is often misused for small-scale mapping."
+                    # source: https://pro.arcgis.com/en/pro-app/help/mapping/properties/cylindrical-equal-area.htm#:~:text=the%20central%20meridian.-,Usage,misused%20for%20small%2Dscale%20mapping.
+
+                    # geo_gs = geo_gs.to_crs(epsg=3395)
+                    # area = int((float(geo_gs.area)))
+                    area = int(calc_geom_area(shap_gs)) #uses albers equal area projection
+
+                    row = {"type": shop_type, "lon": lon, "lat": lat, "area": area}
+                    areas.append(area)
+                    results.append(row)
+                else:
+                    lon = centroid.x
+                    lat = centroid.y
+                    row = {"type": shop_type, "lon": lon, "lat": lat, "area": 0}
+                    results.append(row)
+    if (len(areas) != 0):
+        write_rows_to_csv("supermarkets.csv", results, int(sum(areas) / len(areas)))
+    else:
+        write_rows_to_csv("supermarkets.csv", results, 0)
 
 
 def extract_place_of_worship(osm):
@@ -317,47 +352,53 @@ def extract_place_of_worship(osm):
     extracted_result = osm.get_data_by_custom_criteria(custom_filter=custom_filter,keep_nodes = True, keep_relations = True,keep_ways=True)
     results = []
     areas = []
-    print(str(len(extracted_result)) + " places of worship extracted")
-    for x in range(len(extracted_result)):
-        geo_gs = extracted_result.loc[[x], "geometry"]  # geoseries object
-        shap_gs = extracted_result.loc[x, "geometry"]  # shapely object
-        centroid = shap_gs.centroid
-        if shap_gs.type == "Polygon":
-            lon = centroid.x
-            lat = centroid.y
-            geo_gs.set_crs(epsg=4326)
+    if (extracted_result is None):
+        print("No place of worship found")
+    else:
+        print(str(len(extracted_result)) + " places of worship extracted")
+        for x in range(len(extracted_result)):
+            geo_gs = extracted_result.loc[[x], "geometry"]  # geoseries object
+            shap_gs = extracted_result.loc[x, "geometry"]  # shapely object
+            centroid = shap_gs.centroid
+            if shap_gs.type == "Polygon":
+                lon = centroid.x
+                lat = centroid.y
+                geo_gs.set_crs(epsg=4326)
 
-            # 3857,3395,6933,{'proj':'cea'} : a few epsg strings to project to
-            # most commonly used in web application is 3857 and 6933
-            #
-            # 3395 : used in very small scale mapping
-            # source : https://epsg.io/3395
-            #
-            # 6933 and cea : not useful in our case: "The projection is appropriate for large-scale mapping of the areas near the equator such as Indonesia and parts of the Pacific Ocean. Its recommended use is for narrow areas extending along the standard lines. The projection is often misused for small-scale mapping."
-            # source: https://pro.arcgis.com/en/pro-app/help/mapping/properties/cylindrical-equal-area.htm#:~:text=the%20central%20meridian.-,Usage,misused%20for%20small%2Dscale%20mapping.
+                # 3857,3395,6933,{'proj':'cea'} : a few epsg strings to project to
+                # most commonly used in web application is 3857 and 6933
+                #
+                # 3395 : used in very small scale mapping
+                # source : https://epsg.io/3395
+                #
+                # 6933 and cea : not useful in our case: "The projection is appropriate for large-scale mapping of the areas near the equator such as Indonesia and parts of the Pacific Ocean. Its recommended use is for narrow areas extending along the standard lines. The projection is often misused for small-scale mapping."
+                # source: https://pro.arcgis.com/en/pro-app/help/mapping/properties/cylindrical-equal-area.htm#:~:text=the%20central%20meridian.-,Usage,misused%20for%20small%2Dscale%20mapping.
 
-            # geo_gs = geo_gs.to_crs(epsg=3395)
-            # area = int((float(geo_gs.area)))
-            area = int(calc_geom_area(shap_gs)) #uses albers equal area projection
+                # geo_gs = geo_gs.to_crs(epsg=3395)
+                # area = int((float(geo_gs.area)))
+                area = int(calc_geom_area(shap_gs)) #uses albers equal area projection
 
-            row = {"type": "place_of_worship", "lon": lon, "lat": lat, "area": area}
-            areas.append(area)
-            results.append(row)
+                row = {"type": "place_of_worship", "lon": lon, "lat": lat, "area": area}
+                areas.append(area)
+                results.append(row)
+            else:
+                lon = centroid.x
+                lat = centroid.y
+                row = {"type": "place_of_worship", "lon": lon, "lat": lat, "area": 0}
+                results.append(row)
+        if (len(areas) != 0):
+            write_rows_to_csv("place_of_worship.csv", results, int(sum(areas) / len(areas)))
         else:
-            lon = centroid.x
-            lat = centroid.y
-            row = {"type": "place_of_worship", "lon": lon, "lat": lat, "area": 0}
-            results.append(row)
-    write_rows_to_csv("place_of_worship.csv", results, int(sum(areas) / len(areas)))
+            write_rows_to_csv("place_of_worship.csv", results,0)
 
 
 def extract_houses(osm):
     FIVE_MARLA_HOUSE = 104.52  # in sq meter
     SEVEN_MARLA_HOUSE = 146.32  # in sq meter
-    Islamabad_Population = 1129198  # from https://worldpopulationreview.com/world-cities/islamabad-population
-    # Sector_Population = 50000
+    # Islamabad_Population = 1129198  # from https://worldpopulationreview.com/world-cities/islamabad-population
+    Sector_Population = 50000
     Avg_HouseHold = 6.45 # https://tribune.com.pk/story/1491353/census-2017-family-size-shrinks
-    Total_Num_of_Houses = int(Islamabad_Population / Avg_HouseHold)
+    Total_Num_of_Houses = int(Sector_Population / Avg_HouseHold)
     # Total_Num_of_Houses = 336182  # for islamabad, based on 2017 census
 
 
