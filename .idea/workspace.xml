@@ -5,15 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b6f8276-fe0c-4b8a-b38a-698bf7347636" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/new-parser/location_graph.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/new-parser/results/buildings.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/new-parser/results/hospitals.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/new-parser/results/houses.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/new-parser/results/offices.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/new-parser/results/parks.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/new-parser/results/place_of_worship.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/new-parser/results/schools.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/new-parser/results/supermarkets.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/Abbottabad/Abbottabad_location_graph.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/Abbottabad/abbottabad-buildings.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/Abbottabad/hospitals.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/Abbottabad/houses.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/Abbottabad/offices.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/Abbottabad/parks.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/Abbottabad/place_of_worship.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/Abbottabad/schools.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/Abbottabad/supermarkets.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/new-parser/osm_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/new-parser/osm_parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/new-parser/results/buildings.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/new-parser/results/buildings.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/new-parser/results/hospitals.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/new-parser/results/hospitals.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/new-parser/results/houses.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/new-parser/results/houses.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/new-parser/results/offices.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/new-parser/results/offices.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/new-parser/results/parks.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/new-parser/results/parks.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/new-parser/results/place_of_worship.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/new-parser/results/place_of_worship.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/new-parser/results/schools.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/new-parser/results/schools.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/new-parser/results/supermarkets.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/new-parser/results/supermarkets.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,12 +41,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1gj0tQqWcPLdeuzTlFHanhbvZ3c" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -44,6 +57,10 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/outputs/i8" />
+      <recent name="$PROJECT_DIR$/outputs/i10" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/old-parser" />
@@ -149,93 +166,65 @@
       <option name="project" value="LOCAL" />
       <updated>1602241153733</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added Output Files">
+      <created>1602241393760</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1602241393760</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Updated Readme">
+      <created>1602241949177</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1602241949177</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Updated gitignore">
+      <created>1602242145845</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1602242145845</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Removed location_graph.html">
+      <created>1602242262523</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1602242262523</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Updated osm_parser to cater for exceptions">
+      <created>1603649134507</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1603649134507</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Added Pyrosm for parsing osm.pbf" />
     <MESSAGE value="Updated Code to use Pyrosm for osm parsing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Code to use Pyrosm for osm parsing" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="445" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598614093719">
-      <screen x="55" y="27" width="1865" height="1053" />
-    </state>
-    <state x="445" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/55.27.1865.1053@55.27.1865.1053" timestamp="1598614093719" />
-    <state x="653" y="355" width="661" height="403" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600435694961">
-      <screen x="58" y="27" width="1862" height="1053" />
-    </state>
-    <state x="653" y="355" key="#com.intellij.fileTypes.FileTypeChooser/58.27.1862.1053@58.27.1862.1053" timestamp="1600435694961" />
-    <state x="654" y="355" width="661" height="403" key="#com.intellij.fileTypes.FileTypeChooser/60.27.1860.1053@60.27.1860.1053" timestamp="1600256274548" />
-    <state x="722" y="302" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1601379145606">
-      <screen x="58" y="27" width="1862" height="1053" />
-    </state>
-    <state x="722" y="302" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/58.27.1862.1053@58.27.1862.1053" timestamp="1601379145606" />
-    <state x="529" y="101" width="912" height="911" key="CommitChangelistDialog2" timestamp="1600257819110">
-      <screen x="60" y="27" width="1860" height="1053" />
-    </state>
-    <state x="529" y="101" width="912" height="911" key="CommitChangelistDialog2/60.27.1860.1053@60.27.1860.1053" timestamp="1600257819110" />
-    <state x="772" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1601546616161">
-      <screen x="58" y="27" width="1862" height="1053" />
-    </state>
-    <state x="772" y="311" width="424" height="491" key="FileChooserDialogImpl/58.27.1862.1053@58.27.1862.1053" timestamp="1601546616161" />
-    <state width="1839" height="315" key="GridCell.Tab.0.bottom" timestamp="1601383960664">
-      <screen x="58" y="27" width="1862" height="1053" />
-    </state>
-    <state width="1842" height="278" key="GridCell.Tab.0.bottom/55.27.1865.1053@55.27.1865.1053" timestamp="1600086382893" />
-    <state width="1839" height="315" key="GridCell.Tab.0.bottom/58.27.1862.1053@58.27.1862.1053" timestamp="1601383960664" />
-    <state width="1837" height="315" key="GridCell.Tab.0.bottom/60.27.1860.1053@60.27.1860.1053" timestamp="1600432673984" />
-    <state width="1839" height="315" key="GridCell.Tab.0.center" timestamp="1601383960663">
-      <screen x="58" y="27" width="1862" height="1053" />
-    </state>
-    <state width="1842" height="278" key="GridCell.Tab.0.center/55.27.1865.1053@55.27.1865.1053" timestamp="1600086382892" />
-    <state width="1839" height="315" key="GridCell.Tab.0.center/58.27.1862.1053@58.27.1862.1053" timestamp="1601383960663" />
-    <state width="1837" height="315" key="GridCell.Tab.0.center/60.27.1860.1053@60.27.1860.1053" timestamp="1600432673983" />
-    <state width="1839" height="315" key="GridCell.Tab.0.left" timestamp="1601383960663">
-      <screen x="58" y="27" width="1862" height="1053" />
-    </state>
-    <state width="1842" height="278" key="GridCell.Tab.0.left/55.27.1865.1053@55.27.1865.1053" timestamp="1600086382891" />
-    <state width="1839" height="315" key="GridCell.Tab.0.left/58.27.1862.1053@58.27.1862.1053" timestamp="1601383960663" />
-    <state width="1837" height="315" key="GridCell.Tab.0.left/60.27.1860.1053@60.27.1860.1053" timestamp="1600432673983" />
-    <state width="1839" height="315" key="GridCell.Tab.0.right" timestamp="1601383960664">
-      <screen x="58" y="27" width="1862" height="1053" />
-    </state>
-    <state width="1842" height="278" key="GridCell.Tab.0.right/55.27.1865.1053@55.27.1865.1053" timestamp="1600086382893" />
-    <state width="1839" height="315" key="GridCell.Tab.0.right/58.27.1862.1053@58.27.1862.1053" timestamp="1601383960664" />
-    <state width="1837" height="315" key="GridCell.Tab.0.right/60.27.1860.1053@60.27.1860.1053" timestamp="1600432673984" />
-    <state width="907" height="340" key="GridCell.Tab.1.bottom" timestamp="1600257900089">
-      <screen x="60" y="27" width="1860" height="1053" />
-    </state>
-    <state width="907" height="340" key="GridCell.Tab.1.bottom/60.27.1860.1053@60.27.1860.1053" timestamp="1600257900089" />
-    <state width="907" height="340" key="GridCell.Tab.1.center" timestamp="1600257900089">
-      <screen x="60" y="27" width="1860" height="1053" />
-    </state>
-    <state width="907" height="340" key="GridCell.Tab.1.center/60.27.1860.1053@60.27.1860.1053" timestamp="1600257900089" />
-    <state width="907" height="340" key="GridCell.Tab.1.left" timestamp="1600257900088">
-      <screen x="60" y="27" width="1860" height="1053" />
-    </state>
-    <state width="907" height="340" key="GridCell.Tab.1.left/60.27.1860.1053@60.27.1860.1053" timestamp="1600257900088" />
-    <state width="907" height="340" key="GridCell.Tab.1.right" timestamp="1600257900089">
-      <screen x="60" y="27" width="1860" height="1053" />
-    </state>
-    <state width="907" height="340" key="GridCell.Tab.1.right/60.27.1860.1053@60.27.1860.1053" timestamp="1600257900089" />
-    <state x="635" y="122" width="1022" height="737" key="SettingsEditor" timestamp="1601124881561">
-      <screen x="58" y="27" width="1862" height="1053" />
-    </state>
-    <state x="503" y="160" width="1022" height="753" key="SettingsEditor/55.27.1865.1053@55.27.1865.1053" timestamp="1600086283896" />
-    <state x="635" y="122" key="SettingsEditor/58.27.1862.1053@58.27.1862.1053" timestamp="1601124881561" />
-    <state x="636" y="122" width="1022" height="737" key="SettingsEditor/60.27.1860.1053@60.27.1860.1053" timestamp="1600252737100" />
-    <state x="585" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1600257822049">
-      <screen x="60" y="27" width="1860" height="1053" />
-    </state>
-    <state x="585" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/60.27.1860.1053@60.27.1860.1053" timestamp="1600257822049" />
-    <state x="643" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1599469382958">
-      <screen x="55" y="27" width="1865" height="1053" />
-    </state>
-    <state x="643" y="380" key="com.intellij.ide.util.TipDialog/55.27.1865.1053@55.27.1865.1053" timestamp="1599469382958" />
-    <state x="652" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1600779353402">
-      <screen x="58" y="27" width="1862" height="1053" />
-    </state>
-    <state x="652" y="259" width="672" height="678" key="search.everywhere.popup/58.27.1862.1053@58.27.1862.1053" timestamp="1600779353402" />
+    <MESSAGE value="Added Output Files" />
+    <MESSAGE value="Updated Readme" />
+    <MESSAGE value="Updated gitignore" />
+    <MESSAGE value="Removed location_graph.html" />
+    <MESSAGE value="Updated osm_parser to cater for exceptions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated osm_parser to cater for exceptions" />
   </component>
 </project>

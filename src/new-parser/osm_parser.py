@@ -1,18 +1,18 @@
 from pyrosm import OSM
 import pandas as pd
+from matplotlib import pyplot as plt
 import plotly.express as px
 import plotly.graph_objects as go
 import  plotly as py
 import sys
-from pyrosm import get_data
-import matplotlib.pyplot as plt
+# from pyrosm import get_data
 from shapely.geometry import Polygon, Point
-from fiona.crs import from_epsg
+# from fiona.crs import from_epsg
 import os
 from os import path
 import csv
 import pyproj
-import geopandas
+# import geopandas
 from shapely import ops
 from functools import partial
 import random
@@ -396,7 +396,7 @@ def extract_houses(osm):
     FIVE_MARLA_HOUSE = 104.52  # in sq meter
     SEVEN_MARLA_HOUSE = 146.32  # in sq meter
     # Islamabad_Population = 1129198  # from https://worldpopulationreview.com/world-cities/islamabad-population
-    Sector_Population = 50000
+    Sector_Population = 200000
     Avg_HouseHold = 6.45 # https://tribune.com.pk/story/1491353/census-2017-family-size-shrinks
     Total_Num_of_Houses = int(Sector_Population / Avg_HouseHold)
     # Total_Num_of_Houses = 336182  # for islamabad, based on 2017 census
@@ -459,6 +459,7 @@ def extract_houses(osm):
     write_rows_to_csv("houses.csv", results,0)
 
 
+
 def generate_loc_graph(path):
     try:
         df = pd.read_csv(path, header=None, delimiter=',')
@@ -513,6 +514,9 @@ try:
             print("--loc: to use the output of merge to generate location graph")
             print("--all: to do everything with default osm.pbf")
             break
+        elif currentArgument in ("--input"):
+            print("Using osm="+ currentValue)
+            osm = OSM(currentValue)
         elif currentArgument in ("--all"):
             extract_leisure(osm)
             extract_schools(osm)
@@ -524,8 +528,6 @@ try:
             merge("results")
             generate_loc_graph("results/buildings.csv")
             break
-        elif currentArgument in ("--input"):
-            osm = OSM(currentValue)
         elif currentArgument in ("--leisure"):
             extract_leisure(osm)
         elif currentArgument in ("--schools"):
