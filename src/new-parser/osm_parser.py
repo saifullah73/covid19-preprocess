@@ -182,7 +182,7 @@ def extract_leisure(osm):
     # custom_filter = {'leisure': ["park","garden","nature_reserve","playground","track"]}
     custom_filter = {'leisure':True}
     keys_to_keep = ["leisure"]
-    extracted_result = osm.get_data_by_custom_criteria(custom_filter=custom_filter,osm_keys_to_keep=keys_to_keep,keep_nodes = False, keep_relations = False,keep_ways=True)
+    extracted_result = osm.get_data_by_custom_criteria(custom_filter=custom_filter,osm_keys_to_keep=keys_to_keep,keep_nodes = True, keep_relations = False,keep_ways=True)
     results = []
     areas = []
     if (extracted_result is None):
@@ -231,9 +231,9 @@ def extract_leisure(osm):
 
 def extract_schools(osm):
     # what needs to be extracted
-    custom_filter = {'amenity': ["school","university"], "building": ["school","university"]}
+    custom_filter = {'amenity': ["school","university","college"], "building": ["school","university","college"]}
     keys_to_keep = ["building","amenity"]
-    extracted_result = osm.get_data_by_custom_criteria(custom_filter=custom_filter,osm_keys_to_keep=keys_to_keep,keep_nodes = False, keep_relations = False,keep_ways=True)
+    extracted_result = osm.get_data_by_custom_criteria(custom_filter=custom_filter,osm_keys_to_keep=keys_to_keep,keep_nodes = True, keep_relations = False,keep_ways=True)
     results = []
     areas = []
     if (extracted_result is None):
@@ -284,8 +284,8 @@ def extract_supermarkets(osm):
     #this might not be true in case of other cities
     custom_filter1 = {"landuse": ["retail"],"building": ["retail"]}
     custom_filter2 = {'shop': True}
-    keep_nodes1 = False
-    keep_nodes2 = False
+    keep_nodes1 = True
+    keep_nodes2 = True
     set1 = (custom_filter1,keep_nodes1)
     set2 = (custom_filter2,keep_nodes2)
     results = []
