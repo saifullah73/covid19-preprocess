@@ -4,26 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b6f8276-fe0c-4b8a-b38a-698bf7347636" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/outputs/Abbottabad/Abbottabad_location_graph.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/outputs/Abbottabad/abbottabad-buildings.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/outputs/Abbottabad/hospitals.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/outputs/Abbottabad/houses.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/outputs/Abbottabad/offices.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/outputs/Abbottabad/parks.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/outputs/Abbottabad/place_of_worship.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/outputs/Abbottabad/schools.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/outputs/Abbottabad/supermarkets.csv" afterDir="false" />
+    <list default="true" id="5b6f8276-fe0c-4b8a-b38a-698bf7347636" name="Default Changelist" comment="Edited to Keep all nodes and extracted results for new Abbottabad osm">
+      <change afterPath="$PROJECT_DIR$/OSM/Abbottabad_latest_experimentation.osm.pbf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/Abbottabad_latest_experiments/abbottabad-buildings.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/Abbottabad_latest_experiments/hospitals.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/Abbottabad_latest_experiments/houses.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/Abbottabad_latest_experiments/offices.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/Abbottabad_latest_experiments/parks.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/Abbottabad_latest_experiments/place_of_worship.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/Abbottabad_latest_experiments/schools.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/Abbottabad_latest_experiments/supermarkets.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/new-parser/results/abbottabad-buildings.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/new-parser/results/location_graph.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/new-parser/osm_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/new-parser/osm_parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/new-parser/results/buildings.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/new-parser/results/buildings.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/new-parser/results/abbottabad_buildings.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/new-parser/results/abbottabad_latest_location_graph.html" beforeDir="false" afterPath="$PROJECT_DIR$/outputs/Abbottabad_latest_experiments/abbottabad_location_graph_experiments.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/new-parser/results/hospitals.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/new-parser/results/hospitals.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/new-parser/results/houses.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/new-parser/results/houses.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/new-parser/results/offices.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/new-parser/results/offices.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/new-parser/results/parks.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/new-parser/results/parks.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/new-parser/results/place_of_worship.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/new-parser/results/place_of_worship.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/new-parser/results/schools.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/new-parser/results/schools.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/new-parser/results/supermarkets.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/new-parser/results/supermarkets.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +38,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1gj0tQqWcPLdeuzTlFHanhbvZ3c" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -201,7 +208,21 @@
       <option name="project" value="LOCAL" />
       <updated>1603649134507</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added Location Graph for Abbottabad">
+      <created>1610446494946</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1610446494946</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Edited to Keep all nodes and extracted results for new Abbottabad osm">
+      <created>1611420551376</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1611420551376</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -225,6 +246,8 @@
     <MESSAGE value="Updated gitignore" />
     <MESSAGE value="Removed location_graph.html" />
     <MESSAGE value="Updated osm_parser to cater for exceptions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated osm_parser to cater for exceptions" />
+    <MESSAGE value="Added Location Graph for Abbottabad" />
+    <MESSAGE value="Edited to Keep all nodes and extracted results for new Abbottabad osm" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edited to Keep all nodes and extracted results for new Abbottabad osm" />
   </component>
 </project>

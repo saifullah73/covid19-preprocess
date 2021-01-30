@@ -233,7 +233,7 @@ def extract_schools(osm):
     # what needs to be extracted
     custom_filter = {'amenity': ["school","university","college"], "building": ["school","university","college"]}
     keys_to_keep = ["building","amenity"]
-    extracted_result = osm.get_data_by_custom_criteria(custom_filter=custom_filter,osm_keys_to_keep=keys_to_keep,keep_nodes = True, keep_relations = False,keep_ways=True)
+    extracted_result = osm.get_data_by_custom_criteria(custom_filter=custom_filter,osm_keys_to_keep=keys_to_keep,keep_nodes = False, keep_relations = False,keep_ways=True)
     results = []
     areas = []
     if (extracted_result is None):
@@ -396,7 +396,7 @@ def extract_houses(osm):
     FIVE_MARLA_HOUSE = 104.52  # in sq meter
     SEVEN_MARLA_HOUSE = 146.32  # in sq meter
     # Islamabad_Population = 1129198  # from https://worldpopulationreview.com/world-cities/islamabad-population
-    Sector_Population = 200000
+    Sector_Population = 100000
     Avg_HouseHold = 6.45 # https://tribune.com.pk/story/1491353/census-2017-family-size-shrinks
     Total_Num_of_Houses = int(Sector_Population / Avg_HouseHold)
     # Total_Num_of_Houses = 336182  # for islamabad, based on 2017 census
@@ -475,6 +475,7 @@ def generate_loc_graph(path):
     fig = go.FigureWidget(px.scatter_mapbox(df, lat="y", lon="x",
                                             hover_name="type",
                                             color='color',
+                                            labels={'hospital':'hospital', 'house':'house', 'office':'office', 'park':'park', 'leisure':'leisure', 'school':'school', 'supermarket':'supermarket', 'shopping':'shopping', "place_of_worship":'place_of_worship'},
                                             color_continuous_scale=["darkgreen", "crimson", "orange", "lightgreen",
                                                                     "gold", "purple", "blue", "blue", "cyan"],
                                             zoom=8, height=800))
@@ -482,6 +483,66 @@ def generate_loc_graph(path):
     fig.update_layout(mapbox_style="open-street-map")
     py.offline.plot(fig, filename='location_graph.html')
     # fig.show()
+
+
+
+def generate_loc_graph_2(path):
+    try:
+        df = pd.read_csv(path, header=None, delimiter=',')
+    except Exception as e:
+        print("Error: "+ str(e))
+        return
+    df.columns = ['type', 'x', 'y', 'area']
+    type = ['hospital', 'house', 'office', 'park', 'leisure', 'school', 'supermarket', 'shopping', "place_of_worship"]
+    df['color'] = 0
+    for index, row in df.iterrows():
+        df['color'][index] = type.index(row['type'])
+
+    color = ["darkgreen", "crimson", "orange", "lightgreen","gold", "purple", "blue", "blue", "cyan"]
+    i = 0
+    fig = go.Figure()
+    for lbl in df['type'].unique():
+        dfp = df[df['type'] == lbl]
+        if lbl == 'house':
+            fig.add_traces(go.Scattermapbox(lon=dfp['x'],lat=dfp['y'],name=lbl,mode='markers',marker=go.scattermapbox.Marker(
+                size=6,
+                color=color[i],
+                opacity=1
+            )))
+        else:
+            fig.add_traces(
+                go.Scattermapbox(lon=dfp['x'], lat=dfp['y'], name=lbl, mode='markers', marker=go.scattermapbox.Marker(
+                    size=14,
+                    color=color[i],
+                    opacity=1
+                )))
+        i+=1
+
+    fig.update_layout(width=1500, height=900,
+                      hovermode='closest',
+                      mapbox=go.layout.Mapbox(
+                          accesstoken='pk.eyJ1IjoiZnJlZXJ1bm5lcjczIiwiYSI6ImNrZDVyMHZjMjBkdjkyeG4wNXFzN2tyd3UifQ.lU1MyC4tiv-O3bmAtW8ZKw',
+                          bearing=0,
+                          center=go.layout.mapbox.Center(
+                              lat=34.146183013916016,
+                              lon=73.21556091308594,
+                          ),
+                          pitch=0,
+                          zoom=8,
+                          style='basic'
+                      )
+                      );
+    fig.update_layout(legend=dict(bordercolor='rgb(100,100,100)',
+                                  borderwidth=2,
+                                  itemclick='toggleothers',
+                                  # when you are clicking an item in legend all that are not in the same group are hidden
+                                  x=0.91,
+                                  y=1))
+
+    fig.update_layout(mapbox_style="open-street-map")
+    fig.layout.update(showlegend=True)
+    py.offline.plot(fig, filename='location_graph.html')
+
 
 
 # Remove 1st argument from the
